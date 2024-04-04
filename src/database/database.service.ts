@@ -8,4 +8,8 @@ export class DatabaseService {
   constructor(
     @InjectRepository(UsersEntity) private usersTable: Repository<UsersEntity>,
   ) {}
+
+  fetchUser = async (username: string) => {
+    return this.usersTable.findOneBy({ username });
+  };
 }
